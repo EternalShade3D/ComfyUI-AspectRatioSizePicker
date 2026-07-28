@@ -1,20 +1,43 @@
 # ComfyUI-AspectRatioSizePicker
 # Single-node aspect-ratio + long-edge + invert size picker for text-to-image.
 # Outputs width / height (INT) to feed an Empty Latent Image node, plus an
-# `info` STRING that shows the resolved size, orientation (as a clear
-# PORTRAIT / LANDSCAPE / SQUARE title) and an inverted-ratio preview, and a
-# reference list of common long-edge sizes in photography / video / social.
+# `info` STRING that shows the resolved size, orientation (PORTRAIT / LANDSCAPE
+# / SQUARE semi-title), an inverted-ratio preview, and a reference list of
+# common long-edge sizes in photography / video / social media.
+#
+# The dropdown offers BOTH orientations (e.g. "4:3 (Standard)" and
+# "3:4 (Standard)") so the frontend can flip the visible label when invert is
+# toggled, while the backend always resolves the correct dimensions.
 
+# Each entry: display label -> (w, h) canonical ratio (w >= h by convention).
 RATIOS = {
     "1:1 (Square)": (1, 1),
+    # 4:3 family
     "4:3 (Standard)": (4, 3),
+    "3:4 (Standard)": (3, 4),
+    # 3:2 family
     "3:2 (Classic 35mm Film)": (3, 2),
+    "2:3 (Classic 35mm Film)": (2, 3),
+    # 5:4 family
     "5:4 (Large Format)": (5, 4),
+    "4:5 (Large Format)": (4, 5),
+    # 16:9 family
     "16:9 (Widescreen)": (16, 9),
+    "9:16 (Widescreen)": (9, 16),
+    # 16:10 family
     "16:10 (Widescreen)": (16, 10),
+    "10:16 (Widescreen)": (10, 16),
 }
 
-ASPECT_OPTIONS = list(RATIOS.keys())
+# The 6 "base" orientations shown in the dropdown when invert is OFF.
+ASPECT_OPTIONS = [
+    "1:1 (Square)",
+    "4:3 (Standard)",
+    "3:2 (Classic 35mm Film)",
+    "5:4 (Large Format)",
+    "16:9 (Widescreen)",
+    "16:10 (Widescreen)",
+]
 
 # Common long-edge sizes in photography, video and social media (reference only).
 # Key = long-edge pixel value, value = what it is typically used for.
@@ -67,7 +90,7 @@ class AspectRatioSizePicker:
     CATEGORY = "EternalShade3D"
 
     def pick(self, aspect_ratio, long_edge, invert):
-        a, b = RATIOS[aspect_ratio]  # canonical (w, h)
+        a, b = RATIOS[aspect_ratio]  # canonical (w, h) from the label
         base = f"{a}:{b}"
         if invert:
             a, b = b, a  # swap -> portrait/landscape flip
@@ -103,7 +126,7 @@ class AspectRatioSizePicker:
         if invert:
             ratio_line = f"{base}  ->  INVERTED  ->  {flipped}"
         else:
-            ratio_line = f"{base}  (no invert)"
+            ratio_line = f"{base}"
 
         info = (
             f"=== {orient} ===\n"
