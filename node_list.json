@@ -1,0 +1,17 @@
+{
+  "AspectRatioSizePicker": {
+    "title": "Aspect Ratio Size Picker",
+    "category": "EternalShade3D",
+    "description": "Pick text-to-image dimensions from an aspect-ratio dropdown, a long-edge slider, and an invert toggle. Outputs width/height (INT) plus an info STRING that previews the resolved size, orientation and common long-edge reference sizes.",
+    "inputs": [
+      { "name": "aspect_ratio", "type": "COMBO", "options": ["1:1 (Square)", "4:3 (Standard)", "3:2 (Classic 35mm Film)", "5:4 (Large Format)", "16:9 (Widescreen)", "16:10 (Widescreen)"] },
+      { "name": "long_edge", "type": "INT", "min": 64, "max": 8192, "step": 8, "default": 1024 },
+      { "name": "invert", "type": "BOOLEAN", "default": false }
+    ],
+    "outputs": [
+      { "name": "width", "type": "INT" },
+      { "name": "height", "type": "INT" },
+      { "name": "info", "type": "STRING" }
+    ]
+  }
+}

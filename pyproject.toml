@@ -1,0 +1,27 @@
+[project]
+name = "comfyui-aspect-ratio-size-picker"
+version = "1.1.0"
+description = "A single, no-nonsense node to pick text-to-image dimensions from an aspect-ratio dropdown, a long-edge slider, and an invert toggle. Outputs width/height (INT) plus an info STRING that previews the resolved size, orientation and common long-edge reference sizes."
+authors = [{ name = "EternalShade3D", email = "eternalshadeon@gmail.com" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+repository = "https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker"
+requires-python = ">=3.9"
+
+[project.classifiers]
+"Operating System :: OS Independent" = ""
+"Environment :: GPU :: NVIDIA CUDA" = ""
+
+[project.urls]
+Homepage = "https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker"
+Repository = "https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker"
+
+[tool.comfy]
+PublisherId = "EternalShade3D"
+DisplayName = "Aspect Ratio Size Picker"
+Icon = ""
+Banner = ""
+requires-comfyui = ">=1.0.0"
+
+[tool.comfy.dependencies]
+"custom_nodes/ComfyUI-AspectRatioSizePicker/requirements.txt" = []

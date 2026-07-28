@@ -1,0 +1,2 @@
+# No third-party dependencies.
+# This node uses only the Python standard library and ComfyUI core.
