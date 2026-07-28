@@ -1,11 +1,11 @@
 // ComfyUI-AspectRatioSizePicker frontend extension
-// - Widens the node so the dropdown / slider / info text are not cropped.
+// - Widens the node so the dropdown + slider are not cropped.
 // - When the "invert" toggle is flipped, the aspect-ratio dropdown labels
 //   swap to their inverted equivalents (4:3 -> 3:4, 16:9 -> 9:16) so the
 //   user immediately sees the orientation they selected.
 import { app } from "/scripts/app.js";
 
-const TARGET_WIDTH = 560;
+const TARGET_WIDTH = 480;
 
 const NORMAL = [
   "1:1 (Square)",
@@ -46,7 +46,7 @@ app.registerExtension({
     const onNodeCreated = nodeType.prototype.onNodeCreated;
     nodeType.prototype.onNodeCreated = function () {
       const r = onNodeCreated ? onNodeCreated.apply(this, arguments) : undefined;
-      // Floor the node width so the dropdown + slider + info text fit.
+      // Floor the node width so the dropdown + slider fit.
       if (this.size[0] < TARGET_WIDTH) this.size[0] = TARGET_WIDTH;
 
       // Make the invert toggle flip the visible dropdown labels.
@@ -54,7 +54,6 @@ app.registerExtension({
       const ar = this.widgets && this.widgets.find((x) => x.name === "aspect_ratio");
       if (inv && ar) {
         const initInvert = !!inv.value;
-        // Ensure the dropdown starts on the correct orientation set.
         if (initInvert !== (INVERTED.indexOf(ar.value) !== -1)) {
           swapAspectOptions(this, initInvert);
         }
@@ -63,18 +62,6 @@ app.registerExtension({
           if (origCb) origCb(v);
           swapAspectOptions(this, !!v);
         };
-      }
-      return r;
-    };
-
-    // Keep the info STRING output widget wide so text is not clipped.
-    const onExecuted = nodeType.prototype.onExecuted;
-    nodeType.prototype.onExecuted = function () {
-      const r = onExecuted ? onExecuted.apply(this, arguments) : undefined;
-      for (const w of this.widgets || []) {
-        if (w.name === "info" || (w.type === "string" && w.name !== "info")) {
-          w.width = Math.max(w.width || 0, TARGET_WIDTH - 20);
-        }
       }
       return r;
     };
