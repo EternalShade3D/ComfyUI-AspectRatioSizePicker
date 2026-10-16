@@ -1,5 +1,9 @@
 # Aspect Ratio Size Picker
 
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python)
+![ComfyUI](https://img.shields.io/badge/ComfyUI-node-000000)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 A single, focused ComfyUI node for picking **text-to-image dimensions** without fiddling with manual width/height fields or chaining resize + rotate nodes.
 
 Category: `EternalShade3D` → `Aspect Ratio Size Picker`
