@@ -1,8 +1,12 @@
 # Aspect Ratio Size Picker
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python)
-![ComfyUI](https://img.shields.io/badge/ComfyUI-node-000000)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+<p align="center">
+  <a href="https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker/blob/main/pyproject.toml"><img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&labelColor=26282e&logo=python&logoColor=white" alt="Python 3.9+"></a>
+  <img src="https://img.shields.io/badge/ComfyUI-node-000000?style=for-the-badge&labelColor=26282e&logo=comfyui&logoColor=white" alt="ComfyUI node">
+  <a href="https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker/blob/main/requirements.txt"><img src="https://img.shields.io/badge/Dependencies-none%20(stdlib)-26282e?style=for-the-badge&labelColor=26282e" alt="No third-party dependencies"></a>
+  <a href="https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker"><img src="https://img.shields.io/badge/Comfy%20Registry-pending%20publish-000000?style=for-the-badge&labelColor=26282e&logo=comfyui&logoColor=white" alt="Comfy Registry, pending publish"></a>
+  <a href="https://github.com/EternalShade3D/ComfyUI-AspectRatioSizePicker/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&labelColor=26282e" alt="License: MIT"></a>
+</p>
 
 A single, focused ComfyUI node for picking **text-to-image dimensions** without fiddling with manual width/height fields or chaining resize + rotate nodes.
 
