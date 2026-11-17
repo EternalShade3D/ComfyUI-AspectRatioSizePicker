@@ -1,3 +1,5 @@
+> **⚠️ Archived.** This node now lives in **[ComfyUI-ETERNAL-Nodes](https://github.com/EternalShade3D/ComfyUI-ETERNAL-Nodes)** (published on the [Comfy Registry](https://registry.comfy.org/publishers/eternal/eternal-nodes)). Install that single pack instead — this repo is archived for history and old clones.
+
 # Aspect Ratio Size Picker
 
 <p align="center">
